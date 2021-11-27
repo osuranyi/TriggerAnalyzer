@@ -114,14 +114,12 @@ JetTriggerAnalyzer::JetTriggerAnalyzer(const edm::ParameterSet& iConfig){ //: hl
   //now do what ever initialization is needed
   usesResource("TFileService");
 
-  std::cout << "Constructor begin" << std::endl;
 
   token_hlt = consumes<edm::TriggerResults>(iConfig.getParameter<edm::InputTag>("hltresults"));
   //#token_hlt_rerun = consumes<edm::TriggerResults>(iConfig.getParameter<edm::InputTag>("hltresults_rerun"));
   //trgResultsProcess_ = iConfig.getParameter<edm::InputTag>("hltresults").process();
   //token_jets = consumes<std::vector<pat::Jet>>(iConfig.getParameter<edm::InputTag>("jets"));
 
-  std::cout << "Constructor end" << std::endl;
 }
 
 
@@ -136,16 +134,12 @@ JetTriggerAnalyzer::~JetTriggerAnalyzer(){}
 void
 JetTriggerAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup){
 
-  std::cout << "Analyze begin zero" << std::endl;
-
-
   using namespace edm;
 
   evt = iEvent.id().event();
   run = iEvent.id().run();
   lumi = iEvent.luminosityBlock();
 
-  std::cout << "Analyze begin" << std::endl;
 
   ///////////////////////////////////////
   // Checking original trigger results //
